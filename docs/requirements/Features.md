@@ -1,114 +1,79 @@
-# Features
+# GymCoach AI - Feature Status
 
-## Version 1 Features
+## Sprint 0 - Project Setup
 
-### Authentication
-
-- User Registration
-- User Login
-- JWT Authentication
-- Protected Routes
-
----
-
-### User Profile
-
-Users can maintain:
-
-- Name
-- Age
-- Gender
-- Height
-- Weight
-- Goal
-- Experience Level
-- Available Workout Days
-- Workout Duration
-- Diet Preference
-- Sleep Hours
-- Equipment Available
+* ✅ Repository created
+* ✅ Git workflow established
+* ✅ Backend initialized
+* ✅ Frontend initialized
+* ✅ AI service initialized
+* ✅ MongoDB Atlas configured
+* ✅ MongoDB Compass connected
+* ✅ Environment configuration completed
 
 ---
 
-### AI Workout Planner
+## Sprint 1 - Planning
 
-Generate a personalized workout plan based on:
-
-- User Profile
-- Goal
-- Experience
-- Equipment
-- Available Days
-
-Output:
-
-- Weekly Workout Split
-- Exercises
-- Sets
-- Reps
-- Rest Time
-- Cardio Recommendation
+* ✅ Product Vision
+* ✅ Initial Architecture
+* ✅ Project Folder Structure
+* ✅ Technical Stack Finalized
 
 ---
 
-### Workout Tracker
+## Sprint 2 - Authentication
 
-Users can log:
-
-- Exercise
-- Sets
-- Reps
-- Weight Used
-- Workout Duration
-- Notes
-
----
-
-### Dashboard
-
-Display:
-
-- Current Goal
-- Workout Streak
-- Weight Progress
-- Recent Workouts
-- Weekly Progress
+* ✅ User Registration
+* ✅ User Login
+* ✅ Password Hashing
+* ✅ JWT Authentication
+* ✅ Authentication Context
+* ✅ Session Persistence
+* ✅ Protected Routes
+* ✅ Public Routes
+* ✅ Dashboard Placeholder
+* ✅ Axios API Client
+* ✅ Centralized API Routes
+* ✅ MUI Theme
+* ✅ Reusable UI Components
+* ✅ Form Validation
 
 ---
 
-### AI Coach
+## Sprint 3 - User Profile (Next)
 
-Provide:
-
-- Daily Summary
-- Workout Recommendations
-- Recovery Suggestions
-- Nutrition Guidance
-- Motivation
-
----
-
-### AI Insights
-
-Analyze:
-
-- Workout Consistency
-- Strength Progress
-- Recovery Trend
-- Goal Progress
+* ⬜ Profile Schema
+* ⬜ Profile CRUD API
+* ⬜ Profile UI
+* ⬜ Height
+* ⬜ Weight
+* ⬜ Goal
+* ⬜ Experience Level
+* ⬜ Equipment
+* ⬜ Workout Days
+* ⬜ Diet Preference
+* ⬜ Sleep Schedule
 
 ---
 
-### Machine Learning (Version 1)
+## Sprint 4 - Workout Engine
 
-- Plateau Detection
-- Progress Prediction
+* ⬜ Workout Recommendation Engine
+* ⬜ Workout Planner
+* ⬜ Daily Workout Tracking
 
 ---
 
-## Future Versions
+## Sprint 5 - AI Coach
 
-- Smartwatch Integration
-- Nutrition Scanner
-- Voice Coach
-- Mobile App
+* ⬜ AI Recommendation Engine
+* ⬜ Personalized Suggestions
+* ⬜ Weekly Progress Analysis
+
+---
+
+Current Status:
+
+* Sprint 2 Completed
+* Ready to begin Sprint 3

@@ -1,9 +1,15 @@
-import { useNavigate } from "react-router-dom";
+import Typography from "@mui/material/Typography";
+
+import AppButton from "../components/buttons/AppButton";
+import AuthLayout from "../components/layouts/AuthLayout";
+
 import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
-  const { user, logout } = useAuth();
   const navigate = useNavigate();
+
+  const { user, logout } = useAuth();
 
   const handleLogout = () => {
     logout();
@@ -11,17 +17,18 @@ function Dashboard() {
   };
 
   return (
-    <div style={{ padding: "30px" }}>
-      <h1>Dashboard</h1>
+    <AuthLayout
+      title={`Welcome ${user?.name}`}
+      subtitle={user?.email}
+    >
+      <Typography mb={4}>
+        Authentication completed successfully.
+      </Typography>
 
-      <h2>Welcome {user?.name}</h2>
-
-      <p>{user?.email}</p>
-
-      <button onClick={handleLogout}>
+      <AppButton onClick={handleLogout}>
         Logout
-      </button>
-    </div>
+      </AppButton>
+    </AuthLayout>
   );
 }
 

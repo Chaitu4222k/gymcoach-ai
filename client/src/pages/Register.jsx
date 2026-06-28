@@ -1,35 +1,35 @@
-import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+
 import { registerUser } from "../services/authService";
 
+import AppButton from "../components/buttons/AppButton";
+import AuthLayout from "../components/layouts/AuthLayout";
+import AppTextField from "../components/inputs/AppTextField";
+import PasswordField from "../components/inputs/PasswordField";
+
 function Register() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
+  const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors, isSubmitting },
+  } = useForm();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const password = watch("password");
 
+  const onSubmit = async (data) => {
     try {
-      const response = await registerUser(formData);
+      delete data.confirmPassword;
 
-      console.log(response.data);
+      await registerUser(data);
 
-      alert("User Registered Successfully!");
-
-      setFormData({
-        name: "",
-        email: "",
-        password: "",
-      });
+      navigate("/login");
     } catch (error) {
       console.error(error);
 
@@ -38,46 +38,76 @@ function Register() {
   };
 
   return (
-    <div style={{ maxWidth: 400, margin: "50px auto" }}>
-      <h2>Register</h2>
+    <AuthLayout
+      title="Create Account"
+      subtitle="Start your fitness journey"
+    >
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Stack spacing={2}>
+          <AppTextField
+            label="Name"
+            {...register("name", {
+              required: "Name is required",
+            })}
+            error={!!errors.name}
+            helperText={errors.name?.message}
+          />
 
-      <form onSubmit={handleSubmit}>
-        <input
-          name="name"
-          placeholder="Name"
-          value={formData.name}
-          onChange={handleChange}
-        />
+          <AppTextField
+            label="Email"
+            {...register("email", {
+              required: "Email is required",
+              pattern: {
+                value: /\S+@\S+\.\S+/,
+                message: "Invalid email address",
+              },
+            })}
+            error={!!errors.email}
+            helperText={errors.email?.message}
+          />
 
-        <br />
-        <br />
+          <PasswordField
+            label="Password"
+            {...register("password", {
+              required: "Password is required",
+              minLength: {
+                value: 8,
+                message: "Password must be at least 8 characters",
+              },
+            })}
+            error={!!errors.password}
+            helperText={errors.password?.message}
+          />
 
-        <input
-          name="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-        />
+          <PasswordField
+            label="Confirm Password"
+            {...register("confirmPassword", {
+              required: "Please confirm your password",
+              validate: (value) =>
+                value === password || "Passwords do not match",
+            })}
+            error={!!errors.confirmPassword}
+            helperText={errors.confirmPassword?.message}
+          />
 
-        <br />
-        <br />
-
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-        />
-
-        <br />
-        <br />
-
-        <button type="submit">
-          Register
-        </button>
+          <AppButton
+            type="submit"
+            loading={isSubmitting}
+          >
+            Register
+          </AppButton>
+        </Stack>
       </form>
-    </div>
+
+      <Typography
+        mt={3}
+        align="center"
+        color="text.secondary"
+      >
+        Already have an account?{" "}
+        <Link to="/login">Login</Link>
+      </Typography>
+    </AuthLayout>
   );
 }
 

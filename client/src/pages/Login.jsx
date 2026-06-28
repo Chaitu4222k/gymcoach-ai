@@ -1,73 +1,83 @@
-import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+
 import { loginUser } from "../services/authService";
 import { useAuth } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+
+import AppButton from "../components/buttons/AppButton";
+import AuthLayout from "../components/layouts/AuthLayout";
+import AppTextField from "../components/inputs/AppTextField";
+import PasswordField from "../components/inputs/PasswordField";
 
 function Login() {
-  const { login } = useAuth();
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
+  const { login } = useAuth();
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
+  const onSubmit = async (data) => {
     try {
-      const response = await loginUser(formData);
-
-      console.log(response.data);
+      const response = await loginUser(data);
 
       login(response.data.user, response.data.token);
-      navigate("/dashboard");
 
-      console.log("Logged In");
+      navigate("/dashboard");
     } catch (error) {
       console.error(error);
-
       alert(error.response?.data?.message || "Login Failed");
     }
   };
 
   return (
-    <div style={{ maxWidth: 400, margin: "50px auto" }}>
-      <h2>Login</h2>
+    <AuthLayout
+      title="GymCoach AI"
+      subtitle="Sign in to continue"
+    >
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Stack spacing={2}>
+          <AppTextField
+            label="Email"
+            {...register("email", {
+              required: "Email is required",
+            })}
+            error={!!errors.email}
+            helperText={errors.email?.message}
+          />
 
-      <form onSubmit={handleSubmit}>
-        <input
-          name="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-        />
+          <PasswordField
+            label="Password"
+            {...register("password", {
+              required: "Password is required",
+            })}
+            error={!!errors.password}
+            helperText={errors.password?.message}
+          />
 
-        <br />
-        <br />
-
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-        />
-
-        <br />
-        <br />
-
-        <button type="submit">
-          Login
-        </button>
+          <AppButton
+            type="submit"
+            loading={isSubmitting}
+          >
+            Login
+          </AppButton>
+        </Stack>
       </form>
-    </div>
+
+      <Typography
+        mt={3}
+        align="center"
+        color="text.secondary"
+      >
+        Don't have an account?{" "}
+        <Link to="/register">Register</Link>
+      </Typography>
+    </AuthLayout>
   );
 }
 
