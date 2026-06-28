@@ -1,8 +1,26 @@
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+
 function Dashboard() {
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
+
   return (
-    <div>
+    <div style={{ padding: "30px" }}>
       <h1>Dashboard</h1>
-      <p>Authentication successful.</p>
+
+      <h2>Welcome {user?.name}</h2>
+
+      <p>{user?.email}</p>
+
+      <button onClick={handleLogout}>
+        Logout
+      </button>
     </div>
   );
 }

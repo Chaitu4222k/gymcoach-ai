@@ -4,14 +4,30 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
 import ProtectedRoute from "./ProtectedRoute";
+import PublicRoute from "./PublicRoute";
 
 function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route
+            path="/login"
+            element={
+                <PublicRoute>
+                <Login />
+                </PublicRoute>
+            }
+        />
+
+        <Route
+            path="/register"
+            element={
+                <PublicRoute>
+                <Register />
+                </PublicRoute>
+            }
+        />
         <Route
             path="/dashboard"
             element={
