@@ -50,7 +50,12 @@ const loginUser = async ({ email, password }) => {
   };
 };
 
+const getCurrentUser = async (userId) => {
+  return await User.findById(userId).select("-password");
+};
+
 module.exports = {
   registerUser,
   loginUser,
+  getCurrentUser,
 };

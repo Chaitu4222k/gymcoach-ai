@@ -3,6 +3,7 @@ const { validationResult } = require("express-validator");
 const {
   registerUser,
   loginUser,
+  getCurrentUser,
 } = require("../services/authService");
 
 const register = async (req, res) => {
@@ -76,7 +77,34 @@ const login = async (req, res) => {
   }
 };
 
+const getCurrentUserController = async (req, res) => {
+  try {
+    const user = await getCurrentUser(req.user.id);
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    res.json({
+      success: true,
+      data: user,
+    });
+
+  } catch (error) {
+    console.error(error);
+
+    res.status(500).json({
+      success: false,
+      message: "Internal Server Error",
+    });
+  }
+};
+
 module.exports = {
   register,
   login,
+  getCurrentUser: getCurrentUserController,
 };
