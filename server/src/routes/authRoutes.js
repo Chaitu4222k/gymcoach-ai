@@ -1,5 +1,5 @@
 const express = require("express");
-const { body } = require("express-validator");
+
 const router = express.Router();
 
 const {
@@ -7,35 +7,20 @@ const {
   login,
 } = require("../controllers/authController");
 
+const {
+  validateRegister,
+  validateLogin,
+} = require("../validators/authValidator");
+
 router.post(
   "/register",
-  [
-    body("name")
-      .notEmpty()
-      .withMessage("Name is required"),
-
-    body("email")
-      .isEmail()
-      .withMessage("Valid email is required"),
-
-    body("password")
-      .isLength({ min: 8 })
-      .withMessage("Password must be at least 8 characters"),
-  ],
+  validateRegister,
   register
 );
 
 router.post(
   "/login",
-  [
-    body("email")
-      .isEmail()
-      .withMessage("Valid email is required"),
-
-    body("password")
-      .notEmpty()
-      .withMessage("Password is required"),
-  ],
+  validateLogin,
   login
 );
 
