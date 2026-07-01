@@ -5,6 +5,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
 import { registerUser } from "../services/authService";
+import { useToast } from "../hooks/useToast";
 
 import AppButton from "../components/buttons/AppButton";
 import AuthLayout from "../components/layouts/AuthLayout";
@@ -13,6 +14,7 @@ import PasswordField from "../components/inputs/PasswordField";
 
 function Register() {
   const navigate = useNavigate();
+  const toast = useToast();
 
   const {
     register,
@@ -28,12 +30,13 @@ function Register() {
       delete data.confirmPassword;
 
       await registerUser(data);
+      toast.success("Registration Successful");
 
       navigate("/login");
     } catch (error) {
       console.error(error);
 
-      alert(error.response?.data?.message || "Registration Failed");
+      toast.error(error.response?.data?.message || "Registration Failed");
     }
   };
 

@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 
 import { loginUser } from "../services/authService";
 import { useAuth } from "../context/AuthContext";
+import { useToast } from "../hooks/useToast";
 
 import AppButton from "../components/buttons/AppButton";
 import AuthLayout from "../components/layouts/AuthLayout";
@@ -15,6 +16,7 @@ import PasswordField from "../components/inputs/PasswordField";
 function Login() {
   const navigate = useNavigate();
   const { login } = useAuth();
+  const toast = useToast();
 
   const {
     register,
@@ -27,11 +29,12 @@ function Login() {
       const response = await loginUser(data);
 
       login(response.data.user, response.data.token);
+      toast.success("Login Successful");
 
       navigate("/dashboard");
     } catch (error) {
       console.error(error);
-      alert(error.response?.data?.message || "Login Failed");
+      toast.error(error.response?.data?.message || "Login Failed");
     }
   };
 
