@@ -1,11 +1,14 @@
 export const AUTH_ROUTES = {
   REGISTER: "/auth/register",
   LOGIN: "/auth/login",
+  ME: "/auth/me",
 };
 
 export const PROFILE_ROUTES = {
   GET: "/profile",
+  CREATE: "/profile",
   UPDATE: "/profile",
+  DELETE: "/profile",
 };
 
 export const WORKOUT_ROUTES = {

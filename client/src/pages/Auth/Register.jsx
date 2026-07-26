@@ -4,13 +4,13 @@ import { useForm } from "react-hook-form";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import { registerUser } from "../services/authService";
-import { useToast } from "../hooks/useToast";
+import { registerUser } from "../../services/authService";
+import { useToast } from "../../hooks/useToast";
 
-import AppButton from "../components/buttons/AppButton";
-import AuthLayout from "../components/layouts/AuthLayout";
-import AppTextField from "../components/inputs/AppTextField";
-import PasswordField from "../components/inputs/PasswordField";
+import AppButton from "../../components/buttons/AppButton";
+import AuthLayout from "../../components/layouts/AuthLayout";
+import AppTextField from "../../components/inputs/AppTextField";
+import PasswordField from "../../components/inputs/PasswordField";
 
 function Register() {
   const navigate = useNavigate();
