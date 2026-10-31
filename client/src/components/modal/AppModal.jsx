@@ -17,6 +17,7 @@ function AppModal({
   showFooter = false,
   headerActions,
   fullWidth = true,
+  ...rest
 }) {
   const handleClose = (_, reason) => {
     if (reason === "backdropClick") {
@@ -33,6 +34,7 @@ function AppModal({
       fullWidth={fullWidth}
       maxWidth={maxWidth}
       scroll="paper"
+      {...rest}
       slotProps={{
         paper: {
           sx: {
