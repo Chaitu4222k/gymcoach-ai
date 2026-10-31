@@ -47,6 +47,7 @@ function Login() {
         <Stack spacing={2}>
           <AppTextField
             label="Email"
+            autoComplete="email"
             {...register("email", {
               required: "Email is required",
             })}
@@ -56,6 +57,7 @@ function Login() {
 
           <PasswordField
             label="Password"
+            autoComplete="current-password"
             {...register("password", {
               required: "Password is required",
             })}
@@ -78,7 +80,16 @@ function Login() {
         color="text.secondary"
       >
         Don't have an account?{" "}
-        <Link to="/register">Register</Link>
+        <Link
+          to="/register"
+          style={{
+            color: "#60A5FA",
+            textDecoration: "none",
+            fontWeight: 600,
+          }}
+        >
+          Register
+        </Link>
       </Typography>
     </AuthLayout>
   );

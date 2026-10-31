@@ -10,28 +10,33 @@ import AppTextField from "./AppTextField";
 
 const PasswordField = forwardRef((props, ref) => {
   const [showPassword, setShowPassword] = useState(false);
+  const { slotProps, ...rest } = props;
 
   return (
     <AppTextField
       ref={ref}
       type={showPassword ? "text" : "password"}
-      InputProps={{
-        endAdornment: (
-          <InputAdornment position="end">
-            <IconButton
-              edge="end"
-              onClick={() => setShowPassword((prev) => !prev)}
-            >
-              {showPassword ? (
-                <VisibilityOff />
-              ) : (
-                <Visibility />
-              )}
-            </IconButton>
-          </InputAdornment>
-        ),
+      slotProps={{
+        ...slotProps,
+        input: {
+          endAdornment: (
+            <InputAdornment position="end">
+              <IconButton
+                edge="end"
+                onClick={() => setShowPassword((prev) => !prev)}
+              >
+                {showPassword ? (
+                  <VisibilityOff />
+                ) : (
+                  <Visibility />
+                )}
+              </IconButton>
+            </InputAdornment>
+          ),
+          ...slotProps?.input,
+        },
       }}
-      {...props}
+      {...rest}
     />
   );
 });
