@@ -1,12 +1,7 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 
-import Box from "@mui/material/Box";
-import CircularProgress from "@mui/material/CircularProgress";
-
-import AuthLayout from "../../components/layouts/AuthLayout";
-import ProfileHeader from "../../components/profile/ProfileHeader";
-import ProfileForm from "../../components/profile/ProfileForm";
+import ProfileModal from "./ProfileModal";
 
 import { useToast } from "../../hooks/useToast";
 
@@ -15,6 +10,7 @@ import {
   getProfile,
   createProfile,
   updateProfile,
+  deleteProfile,
 } from "../../services/profileService";
 
 const EMPTY_VALUES = {
@@ -31,13 +27,15 @@ const EMPTY_VALUES = {
   activityLevel: "",
 };
 
-function Profile() {
+function ProfileContainer({ open, onClose }) {
   const toast = useToast();
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [deleting, setDeleting] = useState(false);
   const [user, setUser] = useState(null);
   const [isProfileCreated, setIsProfileCreated] = useState(false);
+  const [mode, setMode] = useState("create");
 
   const {
     control,
@@ -47,7 +45,8 @@ function Profile() {
     watch,
     setValue,
     getValues,
-    formState: { errors },
+    formState: { errors, touchedFields },
+    clearErrors,
   } = useForm({
     defaultValues: EMPTY_VALUES,
     mode: "onTouched",
@@ -55,20 +54,32 @@ function Profile() {
 
   const workoutLocation = watch("workoutLocation");
 
-  const showEquipment = useMemo(() => {
-    return workoutLocation === "Home" || workoutLocation === "Both";
-  }, [workoutLocation]);
+  const showEquipment = useMemo(
+    () => workoutLocation === "Home" || workoutLocation === "Both",
+    [workoutLocation]
+  );
+
+  const resetProfileState = useCallback(() => {
+    reset(EMPTY_VALUES);
+    clearErrors();
+    setMode(isProfileCreated ? "view" : "create");
+  }, [clearErrors, isProfileCreated, reset]);
 
   useEffect(() => {
+    if (!open) {
+      resetProfileState();
+      return;
+    }
+
     let isMounted = true;
 
     const loadProfile = async () => {
+      setLoading(true);
+
       try {
         const userResponse = await getCurrentUser();
 
-        if (!isMounted) {
-          return;
-        }
+        if (!isMounted) return;
 
         setUser(userResponse.data.data);
 
@@ -76,11 +87,10 @@ function Profile() {
           const profileResponse = await getProfile();
           const profile = profileResponse.data;
 
-          if (!isMounted) {
-            return;
-          }
+          if (!isMounted) return;
 
           setIsProfileCreated(true);
+          setMode("view");
 
           reset({
             height: profile.height ?? "",
@@ -102,12 +112,11 @@ function Profile() {
             throw error;
           }
 
-          if (!isMounted) {
-            return;
-          }
+          if (!isMounted) return;
 
-          reset(EMPTY_VALUES);
           setIsProfileCreated(false);
+          setMode("create");
+          reset(EMPTY_VALUES);
         }
       } catch (error) {
         console.error(error);
@@ -124,16 +133,21 @@ function Profile() {
     return () => {
       isMounted = false;
     };
-  }, [reset, toast]);
+  }, [open, reset, resetProfileState, toast]);
 
   useEffect(() => {
+    if (!open) return;
+
     if (!showEquipment) {
       const currentEquipment = getValues("availableEquipment") || [];
       if (currentEquipment.length) {
-        setValue("availableEquipment", [], { shouldDirty: true, shouldValidate: true });
+        setValue("availableEquipment", [], {
+          shouldDirty: true,
+          shouldValidate: true,
+        });
       }
     }
-  }, [getValues, setValue, showEquipment]);
+  }, [open, getValues, setValue, showEquipment]);
 
   const onSubmit = async (data) => {
     try {
@@ -158,6 +172,8 @@ function Profile() {
         setIsProfileCreated(true);
         toast.success("Profile created successfully");
       }
+
+      setMode("view");
     } catch (error) {
       console.error(error);
       toast.error(error.response?.data?.message || "Failed to save profile");
@@ -166,32 +182,51 @@ function Profile() {
     }
   };
 
-  if (loading) {
-    return (
-      <AuthLayout title="Profile" subtitle="Loading your profile...">
-        <Box display="flex" justifyContent="center" py={4}>
-          <CircularProgress />
-        </Box>
-      </AuthLayout>
-    );
-  }
+  const handleClose = () => {
+    resetProfileState();
+    onClose?.();
+  };
+
+  const handleEdit = () => {
+    setMode("edit");
+  };
+
+  const handleDelete = async () => {
+    try {
+      setDeleting(true);
+      await deleteProfile();
+      setIsProfileCreated(false);
+      reset(EMPTY_VALUES);
+      clearErrors();
+      setMode("create");
+      toast.success("Profile deleted successfully");
+    } catch (error) {
+      console.error(error);
+      toast.error(error.response?.data?.message || "Failed to delete profile");
+    } finally {
+      setDeleting(false);
+    }
+  };
 
   return (
-    <AuthLayout>
-      <ProfileHeader user={user} isProfileCreated={isProfileCreated} />
-
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <ProfileForm
-          control={control}
-          register={register}
-          errors={errors}
-          loading={saving}
-          isProfileCreated={isProfileCreated}
-          showEquipment={showEquipment}
-        />
-      </form>
-    </AuthLayout>
+    <ProfileModal
+      open={open}
+      onClose={handleClose}
+      mode={mode}
+      profile={watch()}
+      control={control}
+      register={register}
+      errors={errors}
+      touchedFields={touchedFields}
+      loading={loading || saving}
+      deleting={deleting}
+      showEquipment={showEquipment}
+      onSubmit={handleSubmit(onSubmit)}
+      onEdit={handleEdit}
+      onDelete={handleDelete}
+      user={user}
+    />
   );
 }
 
-export default Profile;
+export default ProfileContainer;
