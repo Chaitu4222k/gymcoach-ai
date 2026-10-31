@@ -4,14 +4,14 @@ import { useForm } from "react-hook-form";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import { loginUser } from "../services/authService";
-import { useAuth } from "../context/AuthContext";
-import { useToast } from "../hooks/useToast";
+import { loginUser } from "../../services/authService";
+import { useAuth } from "../../context/AuthContext";
+import { useToast } from "../../hooks/useToast";
 
-import AppButton from "../components/buttons/AppButton";
-import AuthLayout from "../components/layouts/AuthLayout";
-import AppTextField from "../components/inputs/AppTextField";
-import PasswordField from "../components/inputs/PasswordField";
+import AppButton from "../../components/buttons/AppButton";
+import AuthLayout from "../../components/layouts/AuthLayout";
+import AppTextField from "../../components/inputs/AppTextField";
+import PasswordField from "../../components/inputs/PasswordField";
 
 function Login() {
   const navigate = useNavigate();
@@ -47,6 +47,7 @@ function Login() {
         <Stack spacing={2}>
           <AppTextField
             label="Email"
+            autoComplete="email"
             {...register("email", {
               required: "Email is required",
             })}
@@ -56,6 +57,7 @@ function Login() {
 
           <PasswordField
             label="Password"
+            autoComplete="current-password"
             {...register("password", {
               required: "Password is required",
             })}
@@ -78,7 +80,16 @@ function Login() {
         color="text.secondary"
       >
         Don't have an account?{" "}
-        <Link to="/register">Register</Link>
+        <Link
+          to="/register"
+          style={{
+            color: "#60A5FA",
+            textDecoration: "none",
+            fontWeight: 600,
+          }}
+        >
+          Register
+        </Link>
       </Typography>
     </AuthLayout>
   );

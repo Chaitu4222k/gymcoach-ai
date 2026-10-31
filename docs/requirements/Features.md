@@ -41,23 +41,23 @@
 
 ---
 
-## Sprint 3 - User Profile (Next)
+## Sprint 3 - User Profile
 
-* ⬜ Profile Schema
-* ⬜ Profile CRUD API
-* ⬜ Profile UI
-* ⬜ Height
-* ⬜ Weight
-* ⬜ Goal
-* ⬜ Experience Level
-* ⬜ Equipment
-* ⬜ Workout Days
-* ⬜ Diet Preference
-* ⬜ Sleep Schedule
+* ✅ Profile Schema
+* ✅ Profile CRUD API
+* ✅ Profile UI
+* ✅ Height
+* ✅ Weight
+* ✅ Goal
+* ✅ Experience Level
+* ✅ Equipment
+* ✅ Workout Days
+* ✅ Diet Preference
+* ✅ Sleep Schedule
 
 ---
 
-## Sprint 4 - Workout Engine
+## Sprint 4 - Workout Engine (Next)
 
 * ⬜ Workout Recommendation Engine
 * ⬜ Workout Planner
@@ -75,5 +75,5 @@
 
 Current Status:
 
-* Sprint 2 Completed
-* Ready to begin Sprint 3
+* Sprint 3 Completed
+* Ready to begin Sprint 4

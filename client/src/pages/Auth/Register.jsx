@@ -4,13 +4,13 @@ import { useForm } from "react-hook-form";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import { registerUser } from "../services/authService";
-import { useToast } from "../hooks/useToast";
+import { registerUser } from "../../services/authService";
+import { useToast } from "../../hooks/useToast";
 
-import AppButton from "../components/buttons/AppButton";
-import AuthLayout from "../components/layouts/AuthLayout";
-import AppTextField from "../components/inputs/AppTextField";
-import PasswordField from "../components/inputs/PasswordField";
+import AppButton from "../../components/buttons/AppButton";
+import AuthLayout from "../../components/layouts/AuthLayout";
+import AppTextField from "../../components/inputs/AppTextField";
+import PasswordField from "../../components/inputs/PasswordField";
 
 function Register() {
   const navigate = useNavigate();
@@ -49,6 +49,7 @@ function Register() {
         <Stack spacing={2}>
           <AppTextField
             label="Name"
+            autoComplete="name"
             {...register("name", {
               required: "Name is required",
             })}
@@ -58,6 +59,7 @@ function Register() {
 
           <AppTextField
             label="Email"
+            autoComplete="email"
             {...register("email", {
               required: "Email is required",
               pattern: {
@@ -71,6 +73,7 @@ function Register() {
 
           <PasswordField
             label="Password"
+            autoComplete="new-password"
             {...register("password", {
               required: "Password is required",
               minLength: {
@@ -84,6 +87,7 @@ function Register() {
 
           <PasswordField
             label="Confirm Password"
+            autoComplete="new-password"
             {...register("confirmPassword", {
               required: "Please confirm your password",
               validate: (value) =>
@@ -108,7 +112,16 @@ function Register() {
         color="text.secondary"
       >
         Already have an account?{" "}
-        <Link to="/login">Login</Link>
+        <Link
+          to="/login"
+          style={{
+            color: "#60A5FA",
+            textDecoration: "none",
+            fontWeight: 600,
+          }}
+        >
+          Login
+        </Link>
       </Typography>
     </AuthLayout>
   );
