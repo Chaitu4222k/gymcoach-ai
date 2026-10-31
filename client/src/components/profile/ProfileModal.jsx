@@ -49,6 +49,7 @@ function ProfileModal({
         open={open}
         onClose={onClose}
         maxWidth="lg"
+        disableEnforceFocus={confirmDeleteOpen}
         title={isCreate ? "Complete Profile" : "My Profile"}
         subtitle={
           isCreate
@@ -112,6 +113,7 @@ function ProfileModal({
       <Dialog
         open={confirmDeleteOpen}
         onClose={() => !deleting && setConfirmDeleteOpen(false)}
+        disableRestoreFocus
         slotProps={{
           paper: {
             sx: {
