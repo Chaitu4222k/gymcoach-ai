@@ -11,6 +11,11 @@
 * Protected and Public Routes
 * Reusable component library
 * Dark Material UI theme
+* Autonomous development setup & MongoDB Atlas persistence verification
+
+### Developer Workflow
+
+Autonomous engineering in this repository is governed by [`AGENTS.md`](AGENTS.md) and the [`feature-lifecycle` skill](.agents/skills/feature-lifecycle/SKILL.md). Complete setup documentation and MongoDB Atlas connectivity verification details are recorded in [`Autonomous Setup`](docs/development/AUTONOMOUS_SETUP.md).
 
 ### Technology Stack
 
