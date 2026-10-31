@@ -6,13 +6,19 @@ POST /api/auth/register
 
 POST /api/auth/login
 
+GET /api/auth/me
+
 ---
 
-## User
+## Profile
 
-GET /api/user/profile
+POST /api/profile
 
-PUT /api/user/profile
+GET /api/profile
+
+PUT /api/profile
+
+DELETE /api/profile
 
 ---
 

@@ -1,5 +1,23 @@
 # Changelog
 
+## Sprint 3 - User Profile Module
+
+### Added
+
+* User Profile CRUD API with Mongoose persistence and relational binding to User
+* Comprehensive input validation covering physical metrics, habits, and equipment
+* Automated backend unit test suite for profile validation rules and enums (`server/test/profileValidator.test.js`)
+* Apple-inspired Profile modal dialog architecture with view and edit modes
+* Profile deletion flow with confirmation dialog
+* Dynamic equipment selector for Home and Both workout locations
+* Sprint 3 User Profile documentation and roadmap synchronization
+
+### Improved
+
+* Migrated form and modal components to MUI v9 `slotProps` architecture
+* Added explicit `autocomplete` attributes to authentication credentials fields
+* Enhanced link contrast on dark authentication surfaces
+
 ## Sprint 2 - Authentication Module
 
 ### Added

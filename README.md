@@ -11,6 +11,7 @@
 * Protected and Public Routes
 * Reusable component library
 * Dark Material UI theme
+* User Profile module with validation and modal management
 
 ### Technology Stack
 
@@ -34,4 +35,4 @@
 
 ### Upcoming
 
-Sprint 3 focuses on building the User Profile module. The collected profile information will serve as the foundation for personalized workout plans and future AI-powered recommendations.
+Sprint 4 focuses on building the Workout Engine, including workout recommendations, planners, and daily workout tracking.

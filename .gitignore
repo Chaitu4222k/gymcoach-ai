@@ -27,3 +27,8 @@ coverage/
 
 # Misc
 *.swp
+
+# Local Development & Agent Tooling Instructions
+AGENTS.md
+.agents/
+docs/development/AUTONOMOUS_SETUP.md
