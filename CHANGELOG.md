@@ -1,5 +1,22 @@
 # Changelog
 
+## Sprint 3 - User Profile Module
+
+### Added
+
+* Profile deletion flow with confirmation dialog in Profile modal
+* Destructive profile delete trigger integrated with backend DELETE endpoint
+* Automated backend unit test suite for profile validation rules and enums (`server/test/profileValidator.test.js`)
+* Autonomous development environment validation (Antigravity CLI, AGENTS.md, feature-lifecycle skill, Chrome DevTools MCP, GitHub MCP)
+* Live MongoDB Atlas end-to-end database persistence and restart lifecycle verification
+* Sprint 3 User Profile sprint documentation and roadmap synchronization
+
+### Improved
+
+* Migrated form and modal components to MUI v9 `slotProps` architecture
+* Added explicit `autocomplete` attributes to authentication credentials fields
+* Enhanced link contrast on dark authentication surfaces
+
 ## Sprint 2 - Authentication Module
 
 ### Added
