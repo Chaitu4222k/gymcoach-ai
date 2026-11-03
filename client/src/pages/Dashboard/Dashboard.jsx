@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import CircularProgress from "@mui/material/CircularProgress";
 import Stack from "@mui/material/Stack";
 import IconButton from "@mui/material/IconButton";
+import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
 
@@ -21,6 +22,7 @@ import RoutineManager from "../../components/routines/RoutineManager";
 import ActiveWorkoutModal from "../../components/tracker/ActiveWorkoutModal";
 import WorkoutHistoryModal from "../../components/tracker/WorkoutHistoryModal";
 import ProgressModal from "../../components/progress/ProgressModal";
+import SettingsModal from "../../components/settings/SettingsModal";
 
 import { getDashboard } from "../../services/dashboardService";
 import { useAuth } from "../../context/AuthContext";
@@ -41,6 +43,7 @@ function Dashboard() {
   const [activeWorkoutOpen, setActiveWorkoutOpen] = useState(false);
   const [historyOpen, setHistoryOpen] = useState(false);
   const [progressOpen, setProgressOpen] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
 
   // Prefilled workout session state
   const [activeSessionPreset, setActiveSessionPreset] = useState({
@@ -166,6 +169,14 @@ function Dashboard() {
               </IconButton>
 
               <IconButton
+                onClick={() => setSettingsOpen(true)}
+                sx={{ color: "text.secondary", "&:hover": { color: "#FFFFFF" } }}
+                aria-label="Settings"
+              >
+                <SettingsRoundedIcon />
+              </IconButton>
+
+              <IconButton
                 onClick={handleLogout}
                 sx={{ color: "text.secondary", "&:hover": { color: "error.main" } }}
                 aria-label="Logout"
@@ -279,6 +290,11 @@ function Dashboard() {
           setProgressOpen(false);
           fetchDashboard();
         }}
+      />
+
+      <SettingsModal
+        open={settingsOpen}
+        onClose={() => setSettingsOpen(false)}
       />
     </Box>
   );

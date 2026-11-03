@@ -8,6 +8,8 @@ POST /api/auth/login
 
 GET /api/auth/me
 
+PUT /api/auth/password
+
 ---
 
 ## Profile
@@ -17,6 +19,8 @@ POST /api/profile
 GET /api/profile
 
 PUT /api/profile
+
+PUT /api/profile/preferences
 
 DELETE /api/profile
 

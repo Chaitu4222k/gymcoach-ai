@@ -2,6 +2,7 @@ export const AUTH_ROUTES = {
   REGISTER: "/auth/register",
   LOGIN: "/auth/login",
   ME: "/auth/me",
+  CHANGE_PASSWORD: "/auth/password",
 };
 
 export const PROFILE_ROUTES = {
@@ -9,6 +10,7 @@ export const PROFILE_ROUTES = {
   CREATE: "/profile",
   UPDATE: "/profile",
   DELETE: "/profile",
+  UPDATE_PREFERENCES: "/profile/preferences",
 };
 
 export const EXERCISE_ROUTES = {
@@ -52,4 +54,6 @@ export const DASHBOARD_ROUTES = {
 export const AI_ROUTES = {
   GENERATE_PLAN: "/ai/generate-plan",
   CHAT: "/ai/chat",
+  DAILY_SUMMARY: "/ai/daily-summary",
+  INSIGHTS: "/ai/insights",
 };

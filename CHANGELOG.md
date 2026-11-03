@@ -1,5 +1,15 @@
 # Changelog
 
+## User Settings, Account Security & AI Architecture Module
+
+### Added
+
+* Password modification endpoint (`PUT /api/auth/password`) with bcrypt old-password verification and strength checks
+* User preferences persistence schema and endpoint (`PUT /api/profile/preferences`) supporting weight units, rest timer audio alerts, and theme preferences
+* Formal HTTP 501 Phase 2 AI microservice boundary endpoints (`/api/ai/generate-plan`, `/api/ai/chat`, `/api/ai/daily-summary`, `/api/ai/insights`) returning explicit contract payloads without mocks
+* Automated backend unit test suite (`server/test/authValidator.test.js`) verifying password mutation validation
+* Apple-inspired `SettingsModal` UI providing Account Security, User Preferences, and Phase 2 AI Architecture Boundary overview
+
 ## Performance & Progress Analytics Module
 
 ### Added

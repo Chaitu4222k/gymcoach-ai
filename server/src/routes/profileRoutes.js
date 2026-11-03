@@ -14,6 +14,7 @@ const {
   getProfile,
   updateProfile,
   deleteProfile,
+  updatePreferences,
 } = require("../controllers/profileController");
 
 router.post(
@@ -40,6 +41,12 @@ router.delete(
   "/",
   authMiddleware,
   deleteProfile
+);
+
+router.put(
+  "/preferences",
+  authMiddleware,
+  updatePreferences
 );
 
 module.exports = router;

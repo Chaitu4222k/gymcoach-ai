@@ -75,10 +75,7 @@ const updateProfileController = async (req, res) => {
   }
 
   try {
-    const profile = await updateProfile(
-      req.user.id,
-      req.body
-    );
+    const profile = await updateProfile(req.user.id, req.body);
 
     if (!profile) {
       return res.status(404).json({
@@ -123,9 +120,33 @@ const deleteProfileController = async (req, res) => {
   }
 };
 
+const updatePreferencesController = async (req, res) => {
+  try {
+    const profile = await getProfileByUserId(req.user.id);
+    if (!profile) {
+      return res.status(404).json({ message: "Profile not found" });
+    }
+
+    profile.preferences = {
+      ...(profile.preferences || {}),
+      ...req.body,
+    };
+    await profile.save();
+
+    res.json({
+      message: "Preferences updated successfully",
+      preferences: profile.preferences,
+    });
+  } catch (error) {
+    console.error("Error updating preferences:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
 module.exports = {
   createProfile: createProfileController,
   getProfile,
   updateProfile: updateProfileController,
   deleteProfile: deleteProfileController,
+  updatePreferences: updatePreferencesController,
 };

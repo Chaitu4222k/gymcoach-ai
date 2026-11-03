@@ -4,6 +4,7 @@ const {
   registerUser,
   loginUser,
   getCurrentUser,
+  updateUserPassword,
 } = require("../services/authService");
 
 const register = async (req, res) => {
@@ -92,7 +93,6 @@ const getCurrentUserController = async (req, res) => {
       success: true,
       data: user,
     });
-
   } catch (error) {
     console.error(error);
 
@@ -103,8 +103,25 @@ const getCurrentUserController = async (req, res) => {
   }
 };
 
+const changePasswordController = async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
+  try {
+    const result = await updateUserPassword(req.user.id, req.body);
+    res.json(result);
+  } catch (error) {
+    console.error("Error updating password:", error);
+    const status = error.statusCode || 500;
+    res.status(status).json({ message: error.message || "Internal Server Error" });
+  }
+};
+
 module.exports = {
   register,
   login,
   getCurrentUser: getCurrentUserController,
+  changePassword: changePasswordController,
 };
