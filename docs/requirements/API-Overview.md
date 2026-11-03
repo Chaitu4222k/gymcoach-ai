@@ -22,6 +22,20 @@ DELETE /api/profile
 
 ---
 
+## Exercises
+
+GET /api/exercises/options
+
+GET /api/exercises
+
+GET /api/exercises/:id
+
+POST /api/exercises
+
+DELETE /api/exercises/:id
+
+---
+
 ## Workout
 
 POST /api/workouts

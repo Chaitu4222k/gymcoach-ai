@@ -11,6 +11,14 @@ export const PROFILE_ROUTES = {
   DELETE: "/profile",
 };
 
+export const EXERCISE_ROUTES = {
+  GET_ALL: "/exercises",
+  GET_OPTIONS: "/exercises/options",
+  GET_BY_ID: (id) => `/exercises/${id}`,
+  CREATE: "/exercises",
+  DELETE: (id) => `/exercises/${id}`,
+};
+
 export const WORKOUT_ROUTES = {
   GET_ALL: "/workouts",
   CREATE: "/workouts",

@@ -57,15 +57,20 @@
 
 ---
 
-## Sprint 4 - Workout Engine (Next)
+## Sprint 4 - Workout Engine (In Progress)
 
-* ⬜ Workout Recommendation Engine
-* ⬜ Workout Planner
-* ⬜ Daily Workout Tracking
+* ✅ Exercise Catalog & Taxonomy Schema
+* ✅ Standard Exercise Library Seeding (40+ canonical exercises)
+* ✅ Custom Exercise Creation & Management API
+* ✅ Exercise Filtering, Search & Options Metadata API
+* ✅ Exercise Library UI Explorer (Apple-inspired cards, filters, detail view, creation modal)
+* ⬜ Workout Routine Planner & Builder
+* ⬜ Rule-based Workout Recommender
+* ⬜ Daily Workout Tracking & Active Session Logger
 
 ---
 
-## Sprint 5 - AI Coach
+## Sprint 5 - AI Coach (Phase 2 - Collaborative)
 
 * ⬜ AI Recommendation Engine
 * ⬜ Personalized Suggestions
@@ -76,4 +81,4 @@
 Current Status:
 
 * Sprint 3 Completed
-* Ready to begin Sprint 4
+* Sprint 4: Exercise Catalog & Management implemented; awaiting Atlas IP whitelisting for live DB verification

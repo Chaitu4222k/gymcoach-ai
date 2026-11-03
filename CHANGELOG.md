@@ -1,5 +1,17 @@
 # Changelog
 
+## Sprint 4 - Workout Engine (In Progress)
+
+### Added
+
+* Comprehensive Exercise catalog schema with muscle groups, categories, difficulty levels, and equipment constraints
+* Standard exercise library with 40+ canonical movements seeded automatically upon startup
+* User-owned custom exercise creation and deletion endpoints with strict ownership authorization
+* Exercise filtering by primary muscle, equipment, category, difficulty, custom ownership, and case-insensitive search
+* Backend automated validation test suite (`server/test/exerciseValidator.test.js`) with 100% pass rate
+* Apple-inspired Exercise Library UI: `ExerciseExplorer`, `ExerciseCard`, `ExerciseFilters`, `ExerciseDetailModal`, and `CustomExerciseModal`
+* Dashboard entry point for opening the Exercise Library
+
 ## Sprint 3 - User Profile Module
 
 ### Added
@@ -58,4 +70,3 @@
 * Password hashing with bcrypt
 * JWT-based authentication
 * Backend request validation
-* Protected client-side routing
