@@ -1,5 +1,16 @@
 # Changelog
 
+## Dashboard & Analytics Module
+
+### Added
+
+* Aggregated dashboard overview API (`/api/dashboard`) returning athlete summary, weekly cadence progress, total volume, and active routine status
+* Apple-inspired full Dashboard experience replacing legacy placeholder
+* `MetricCardsGrid` displaying weekly workout cadence progress, total tonnage, all-time sessions, and active split badge
+* `ActiveSplitWidget` featuring automated today's scheduled split detection, rest day guidance, and one-click workout launcher
+* `RecentActivityWidget` with chronological session cards and duration/volume badges
+* `QuickNavGrid` providing fast access to Workout Planner, Exercise Library, Workout History, and Athlete Profile
+
 ## Sprint 4 - Workout Engine
 
 ### Added

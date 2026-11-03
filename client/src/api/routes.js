@@ -38,6 +38,10 @@ export const WORKOUT_ROUTES = {
   DELETE: (id) => `/workouts/${id}`,
 };
 
+export const DASHBOARD_ROUTES = {
+  GET: "/dashboard",
+};
+
 export const AI_ROUTES = {
   GENERATE_PLAN: "/ai/generate-plan",
   CHAT: "/ai/chat",
