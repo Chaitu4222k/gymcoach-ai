@@ -8,6 +8,8 @@ POST /api/auth/login
 
 GET /api/auth/me
 
+PUT /api/auth/password
+
 ---
 
 ## Profile
@@ -18,17 +20,71 @@ GET /api/profile
 
 PUT /api/profile
 
+PUT /api/profile/preferences
+
 DELETE /api/profile
 
 ---
 
-## Workout
+## Exercises
+
+GET /api/exercises/options
+
+GET /api/exercises
+
+GET /api/exercises/:id
+
+POST /api/exercises
+
+DELETE /api/exercises/:id
+
+---
+
+## Workout Routines & Planner
+
+GET /api/workouts/routines/recommendations
+
+GET /api/workouts/routines/active
+
+GET /api/workouts/routines
+
+GET /api/workouts/routines/:id
+
+POST /api/workouts/routines
+
+PUT /api/workouts/routines/:id
+
+PUT /api/workouts/routines/:id/active
+
+DELETE /api/workouts/routines/:id
+
+---
+
+## Workout Tracking & Sessions
 
 POST /api/workouts
 
 GET /api/workouts
 
 GET /api/workouts/history
+
+GET /api/workouts/:id
+
+DELETE /api/workouts/:id
+
+---
+
+## Performance & Progress Analytics
+
+POST /api/progress/weight
+
+GET /api/progress/weight
+
+DELETE /api/progress/weight/:id
+
+GET /api/progress/volume
+
+GET /api/progress/muscles
 
 ---
 

@@ -88,6 +88,23 @@ const profileSchema = new mongoose.Schema(
       enum: ACTIVITY_LEVELS,
       required: true,
     },
+
+    preferences: {
+      weightUnit: {
+        type: String,
+        enum: ["kg", "lbs"],
+        default: "kg",
+      },
+      restTimerSound: {
+        type: Boolean,
+        default: true,
+      },
+      theme: {
+        type: String,
+        enum: ["dark", "system"],
+        default: "dark",
+      },
+    },
   },
   {
     timestamps: true,

@@ -57,15 +57,56 @@
 
 ---
 
-## Sprint 4 - Workout Engine (Next)
+## Sprint 4 - Workout Engine
 
-* ⬜ Workout Recommendation Engine
-* ⬜ Workout Planner
-* ⬜ Daily Workout Tracking
+* ✅ Exercise Catalog & Taxonomy Schema
+* ✅ Standard Exercise Library Seeding (40+ canonical exercises)
+* ✅ Custom Exercise Creation & Management API
+* ✅ Exercise Filtering, Search & Options Metadata API
+* ✅ Exercise Library UI Explorer (Apple-inspired cards, filters, detail view, creation modal)
+* ✅ Workout Routine Model & Persistence (`WorkoutRoutine.js`)
+* ✅ Workout Routine CRUD & Active Split Management API (`/api/workouts/routines`)
+* ✅ Rule-Based Starter Routine Recommender Engine (`/api/workouts/routines/recommendations`)
+* ✅ Workout Planner UI (`RoutineManager`, `RoutineCard`, `RoutineDaySchedule`, `RoutineBuilderModal`, `StarterRecommendationModal`)
+* ✅ Daily Workout Tracking Model & Persistence (`WorkoutLog.js`)
+* ✅ Workout Logging & History API with Volume Analytics (`/api/workouts`, `/api/workouts/history`)
+* ✅ Active Workout Tracker UI (`ActiveWorkoutModal` with elapsed session timer, rest timer, interactive set logging)
+* ✅ Workout History UI (`WorkoutHistoryModal` with aggregate performance metrics and expandable set breakdown)
 
 ---
 
-## Sprint 5 - AI Coach
+## Sprint 4.5 - Dashboard Transformation & Analytics Aggregation
+
+* ✅ Dashboard Overview Aggregation API (`/api/dashboard`)
+* ✅ Weekly Cadence & Volume Analytics Engine
+* ✅ Active Split Determination & Next Workout Recommender
+* ✅ Apple-Inspired Dashboard UI (`DashboardHeader`, `MetricCardsGrid`, `ActiveSplitWidget`, `RecentActivityWidget`, `QuickNavGrid`)
+* ✅ Integrated Live Workout Launcher from Today's Scheduled Split
+
+---
+
+## Sprint 4.6 - Progress Tracking & Performance Analytics
+
+* ✅ Body Weight Tracking Model & Automatic Profile Sync (`BodyWeightLog.js`)
+* ✅ Body Weight CRUD & Trajectory Stats API (`/api/progress/weight`)
+* ✅ Weekly Volume Progression Trends Engine (`/api/progress/volume`)
+* ✅ 30-Day Muscle Group Distribution & Training Balance Engine (`/api/progress/muscles`)
+* ✅ Automated Unit Tests for Progress Validators (`server/test/progressValidator.test.js`)
+* ✅ Apple-Inspired Progress UI Modal (`ProgressModal` with Weight Tracker, Volume Trends, Muscular Balance)
+
+---
+
+## Sprint 4.7 - User Settings, Account Security & AI Architecture Boundaries
+
+* ✅ Password Change API with BCrypt verification (`/api/auth/password`)
+* ✅ Application Preferences Schema & API (`/api/profile/preferences` - units, rest timer audio, UI theme)
+* ✅ Explicit Phase 2 AI Microservice Contract Endpoints (HTTP 501 Stubs: `/api/ai/generate-plan`, `/api/ai/chat`, `/api/ai/daily-summary`, `/api/ai/insights`)
+* ✅ Backend Validation Unit Tests for Password and Account Management (`server/test/authValidator.test.js`)
+* ✅ Apple-Inspired Settings UI Modal (`SettingsModal` with Account Security, Preferences, and AI Architecture Boundary status)
+
+---
+
+## Sprint 5 - AI Coach (Phase 2 - Collaborative)
 
 * ⬜ AI Recommendation Engine
 * ⬜ Personalized Suggestions
@@ -73,7 +114,12 @@
 
 ---
 
-Current Status:
+## Phase 1 Non-AI Completion Status
 
-* Sprint 3 Completed
-* Ready to begin Sprint 4
+* ✅ Milestone 1 (Exercise Catalog & Library): Complete
+* ✅ Milestone 2 (Workout Routine Builder & Planner): Complete
+* ✅ Milestone 3 (Daily Workout Tracking & Active Session Logger): Complete
+* ✅ Milestone 4 (Dashboard Transformation & Analytics): Complete
+* ✅ Milestone 5 (Progress & Performance Analytics): Complete
+* ✅ Milestone 6 (User Settings, Account Security & AI Boundaries): Complete
+* 🏆 Phase 1 Non-AI Application Development: 100% Complete & Verified

@@ -19,3 +19,6 @@ export const updateProfile = (data) =>
 
 export const deleteProfile = () =>
     apiClient.delete(PROFILE_ROUTES.DELETE);
+
+export const updatePreferences = (data) =>
+    apiClient.put(PROFILE_ROUTES.UPDATE_PREFERENCES, data);

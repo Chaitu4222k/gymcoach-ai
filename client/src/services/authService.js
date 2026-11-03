@@ -6,3 +6,6 @@ export const registerUser = (data) =>
 
 export const loginUser = (data) =>
   apiClient.post(AUTH_ROUTES.LOGIN, data);
+
+export const changePassword = (data) =>
+  apiClient.put(AUTH_ROUTES.CHANGE_PASSWORD, data);
