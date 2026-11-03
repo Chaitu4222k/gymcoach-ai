@@ -7,6 +7,7 @@ const connectDB = require("./config/database");
 const authRoutes = require("./routes/authRoutes");
 const profileRoutes = require("./routes/profileRoutes");
 const exerciseRoutes = require("./routes/exerciseRoutes");
+const routineRoutes = require("./routes/routineRoutes");
 const { seedStandardExercises } = require("./services/exerciseService");
 
 dotenv.config();
@@ -22,6 +23,7 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/profile", profileRoutes);
 app.use("/api/exercises", exerciseRoutes);
+app.use("/api/workouts/routines", routineRoutes);
 
 const PORT = process.env.PORT || 5000;
 

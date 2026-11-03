@@ -64,8 +64,10 @@
 * ✅ Custom Exercise Creation & Management API
 * ✅ Exercise Filtering, Search & Options Metadata API
 * ✅ Exercise Library UI Explorer (Apple-inspired cards, filters, detail view, creation modal)
-* ⬜ Workout Routine Planner & Builder
-* ⬜ Rule-based Workout Recommender
+* ✅ Workout Routine Model & Persistence (`WorkoutRoutine.js`)
+* ✅ Workout Routine CRUD & Active Split Management API (`/api/workouts/routines`)
+* ✅ Rule-Based Starter Routine Recommender Engine (`/api/workouts/routines/recommendations`)
+* ✅ Workout Planner UI (`RoutineManager`, `RoutineCard`, `RoutineDaySchedule`, `RoutineBuilderModal`, `StarterRecommendationModal`)
 * ⬜ Daily Workout Tracking & Active Session Logger
 
 ---
@@ -81,4 +83,4 @@
 Current Status:
 
 * Sprint 3 Completed
-* Sprint 4: Exercise Catalog & Management implemented; awaiting Atlas IP whitelisting for live DB verification
+* Sprint 4: Exercise Catalog & Workout Planner implemented; proceeding directly to Daily Workout Tracking & Session Logger

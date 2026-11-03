@@ -36,7 +36,27 @@ DELETE /api/exercises/:id
 
 ---
 
-## Workout
+## Workout Routines & Planner
+
+GET /api/workouts/routines/recommendations
+
+GET /api/workouts/routines/active
+
+GET /api/workouts/routines
+
+GET /api/workouts/routines/:id
+
+POST /api/workouts/routines
+
+PUT /api/workouts/routines/:id
+
+PUT /api/workouts/routines/:id/active
+
+DELETE /api/workouts/routines/:id
+
+---
+
+## Workout Tracking & Sessions
 
 POST /api/workouts
 

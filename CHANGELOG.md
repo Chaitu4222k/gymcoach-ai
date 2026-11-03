@@ -10,7 +10,12 @@
 * Exercise filtering by primary muscle, equipment, category, difficulty, custom ownership, and case-insensitive search
 * Backend automated validation test suite (`server/test/exerciseValidator.test.js`) with 100% pass rate
 * Apple-inspired Exercise Library UI: `ExerciseExplorer`, `ExerciseCard`, `ExerciseFilters`, `ExerciseDetailModal`, and `CustomExerciseModal`
-* Dashboard entry point for opening the Exercise Library
+* Workout Routine model (`WorkoutRoutine.js`) supporting customizable training splits, scheduled days, and exercise parameters
+* Full REST API for workout routines (`/api/workouts/routines`) including active routine toggling and ownership protection
+* Deterministic rule-based starter routine recommendation engine (`/api/workouts/routines/recommendations`) tailored to user profile metrics
+* Automated test suite for workout routine validation rules (`server/test/routineValidator.test.js`)
+* Apple-inspired Workout Planner UI suite: `RoutineManager`, `RoutineCard`, `RoutineDaySchedule`, `RoutineBuilderModal`, and `StarterRecommendationModal`
+* Dashboard entry points for Exercise Library and Workout Planner
 
 ## Sprint 3 - User Profile Module
 

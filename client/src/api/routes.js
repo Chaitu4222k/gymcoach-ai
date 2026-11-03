@@ -19,6 +19,17 @@ export const EXERCISE_ROUTES = {
   DELETE: (id) => `/exercises/${id}`,
 };
 
+export const ROUTINE_ROUTES = {
+  GET_ALL: "/workouts/routines",
+  GET_ACTIVE: "/workouts/routines/active",
+  RECOMMENDATIONS: "/workouts/routines/recommendations",
+  GET_BY_ID: (id) => `/workouts/routines/${id}`,
+  CREATE: "/workouts/routines",
+  UPDATE: (id) => `/workouts/routines/${id}`,
+  DELETE: (id) => `/workouts/routines/${id}`,
+  SET_ACTIVE: (id) => `/workouts/routines/${id}/active`,
+};
+
 export const WORKOUT_ROUTES = {
   GET_ALL: "/workouts",
   CREATE: "/workouts",
