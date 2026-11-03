@@ -1,6 +1,6 @@
 # Changelog
 
-## Sprint 4 - Workout Engine (In Progress)
+## Sprint 4 - Workout Engine
 
 ### Added
 
@@ -15,7 +15,12 @@
 * Deterministic rule-based starter routine recommendation engine (`/api/workouts/routines/recommendations`) tailored to user profile metrics
 * Automated test suite for workout routine validation rules (`server/test/routineValidator.test.js`)
 * Apple-inspired Workout Planner UI suite: `RoutineManager`, `RoutineCard`, `RoutineDaySchedule`, `RoutineBuilderModal`, and `StarterRecommendationModal`
-* Dashboard entry points for Exercise Library and Workout Planner
+* Daily Workout Log persistence model (`WorkoutLog.js`) with automatic volume calculation in kilograms
+* Workout Session Logging and History API (`/api/workouts`, `/api/workouts/history`) with performance aggregation
+* Automated test suite for workout logging validation rules (`server/test/workoutLogValidator.test.js`)
+* Interactive Active Workout Tracker UI (`ActiveWorkoutModal`) featuring live elapsed workout timer, rest interval countdown timer, and interactive set completion tracking
+* Workout History viewer UI (`WorkoutHistoryModal`) with aggregate statistics bar (total sessions, weekly count, total tonnage, hours) and expandable set-level breakdowns
+* Dashboard entry points for Start Live Workout and Workout History
 
 ## Sprint 3 - User Profile Module
 

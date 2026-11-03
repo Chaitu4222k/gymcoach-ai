@@ -57,7 +57,7 @@
 
 ---
 
-## Sprint 4 - Workout Engine (In Progress)
+## Sprint 4 - Workout Engine
 
 * ✅ Exercise Catalog & Taxonomy Schema
 * ✅ Standard Exercise Library Seeding (40+ canonical exercises)
@@ -68,7 +68,10 @@
 * ✅ Workout Routine CRUD & Active Split Management API (`/api/workouts/routines`)
 * ✅ Rule-Based Starter Routine Recommender Engine (`/api/workouts/routines/recommendations`)
 * ✅ Workout Planner UI (`RoutineManager`, `RoutineCard`, `RoutineDaySchedule`, `RoutineBuilderModal`, `StarterRecommendationModal`)
-* ⬜ Daily Workout Tracking & Active Session Logger
+* ✅ Daily Workout Tracking Model & Persistence (`WorkoutLog.js`)
+* ✅ Workout Logging & History API with Volume Analytics (`/api/workouts`, `/api/workouts/history`)
+* ✅ Active Workout Tracker UI (`ActiveWorkoutModal` with elapsed session timer, rest timer, interactive set logging)
+* ✅ Workout History UI (`WorkoutHistoryModal` with aggregate performance metrics and expandable set breakdown)
 
 ---
 
@@ -82,5 +85,5 @@
 
 Current Status:
 
-* Sprint 3 Completed
-* Sprint 4: Exercise Catalog & Workout Planner implemented; proceeding directly to Daily Workout Tracking & Session Logger
+* Sprint 4 Workout Engine Completed (Exercises, Planner, Live Tracker, History)
+* Proceeding to Milestone 4: Dashboard Transformation & Analytics Aggregation

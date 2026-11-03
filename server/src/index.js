@@ -8,6 +8,7 @@ const authRoutes = require("./routes/authRoutes");
 const profileRoutes = require("./routes/profileRoutes");
 const exerciseRoutes = require("./routes/exerciseRoutes");
 const routineRoutes = require("./routes/routineRoutes");
+const workoutLogRoutes = require("./routes/workoutLogRoutes");
 const { seedStandardExercises } = require("./services/exerciseService");
 
 dotenv.config();
@@ -24,6 +25,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/profile", profileRoutes);
 app.use("/api/exercises", exerciseRoutes);
 app.use("/api/workouts/routines", routineRoutes);
+app.use("/api/workouts", workoutLogRoutes);
 
 const PORT = process.env.PORT || 5000;
 

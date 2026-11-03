@@ -31,9 +31,10 @@ export const ROUTINE_ROUTES = {
 };
 
 export const WORKOUT_ROUTES = {
+  LOG: "/workouts",
   GET_ALL: "/workouts",
-  CREATE: "/workouts",
-  UPDATE: (id) => `/workouts/${id}`,
+  HISTORY: "/workouts/history",
+  GET_BY_ID: (id) => `/workouts/${id}`,
   DELETE: (id) => `/workouts/${id}`,
 };
 
