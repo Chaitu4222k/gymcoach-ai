@@ -5,6 +5,7 @@ import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import CalendarMonthRoundedIcon from "@mui/icons-material/CalendarMonthRounded";
 import FitnessCenterRoundedIcon from "@mui/icons-material/FitnessCenterRounded";
 import HistoryRoundedIcon from "@mui/icons-material/HistoryRounded";
+import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
 import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
 
 function NavTile({ title, description, icon, color = "#4CAF50", onClick }) {
@@ -91,6 +92,7 @@ function QuickNavGrid({
   onOpenPlanner,
   onOpenExercises,
   onOpenHistory,
+  onOpenProgress,
   onOpenProfile,
 }) {
   return (
@@ -100,7 +102,7 @@ function QuickNavGrid({
       </Typography>
 
       <Grid container spacing={2.5}>
-        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+        <Grid size={{ xs: 12, sm: 6, md: 4 }}>
           <NavTile
             title="Workout Planner"
             description="Build splits, configure scheduled days, and adopt recommended routines."
@@ -110,7 +112,7 @@ function QuickNavGrid({
           />
         </Grid>
 
-        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+        <Grid size={{ xs: 12, sm: 6, md: 4 }}>
           <NavTile
             title="Exercise Library"
             description="Explore 40+ canonical movements with instructions or add custom exercises."
@@ -120,7 +122,7 @@ function QuickNavGrid({
           />
         </Grid>
 
-        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+        <Grid size={{ xs: 12, sm: 6, md: 4 }}>
           <NavTile
             title="Workout History"
             description="Review completed training logs, volume metrics, and individual set records."
@@ -130,7 +132,17 @@ function QuickNavGrid({
           />
         </Grid>
 
-        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+        <Grid size={{ xs: 12, sm: 6, md: 6 }}>
+          <NavTile
+            title="Progress & Body Analytics"
+            description="Track body weight trajectory, weekly tonnage volume, and muscular balance."
+            icon={<TrendingUpRoundedIcon fontSize="small" />}
+            color="#00E676"
+            onClick={onOpenProgress}
+          />
+        </Grid>
+
+        <Grid size={{ xs: 12, sm: 6, md: 6 }}>
           <NavTile
             title="Athlete Profile"
             description="Manage your physical metrics, available equipment, and fitness preferences."

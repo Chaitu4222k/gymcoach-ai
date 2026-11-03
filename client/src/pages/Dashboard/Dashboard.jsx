@@ -20,6 +20,7 @@ import ExerciseExplorer from "../../components/exercises/ExerciseExplorer";
 import RoutineManager from "../../components/routines/RoutineManager";
 import ActiveWorkoutModal from "../../components/tracker/ActiveWorkoutModal";
 import WorkoutHistoryModal from "../../components/tracker/WorkoutHistoryModal";
+import ProgressModal from "../../components/progress/ProgressModal";
 
 import { getDashboard } from "../../services/dashboardService";
 import { useAuth } from "../../context/AuthContext";
@@ -39,6 +40,7 @@ function Dashboard() {
   const [routinesOpen, setRoutinesOpen] = useState(false);
   const [activeWorkoutOpen, setActiveWorkoutOpen] = useState(false);
   const [historyOpen, setHistoryOpen] = useState(false);
+  const [progressOpen, setProgressOpen] = useState(false);
 
   // Prefilled workout session state
   const [activeSessionPreset, setActiveSessionPreset] = useState({
@@ -226,6 +228,7 @@ function Dashboard() {
               onOpenPlanner={() => setRoutinesOpen(true)}
               onOpenExercises={() => setExercisesOpen(true)}
               onOpenHistory={() => setHistoryOpen(true)}
+              onOpenProgress={() => setProgressOpen(true)}
               onOpenProfile={() => setProfileOpen(true)}
             />
           </>
@@ -266,6 +269,14 @@ function Dashboard() {
         open={historyOpen}
         onClose={() => {
           setHistoryOpen(false);
+          fetchDashboard();
+        }}
+      />
+
+      <ProgressModal
+        open={progressOpen}
+        onClose={() => {
+          setProgressOpen(false);
           fetchDashboard();
         }}
       />

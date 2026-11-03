@@ -1,5 +1,16 @@
 # Changelog
 
+## Performance & Progress Analytics Module
+
+### Added
+
+* Body Weight Tracking schema (`BodyWeightLog.js`) with automatic synchronization to active user profile
+* Body weight endpoints (`/api/progress/weight`) providing starting/current weight, net change, and low/high range analytics
+* Weekly volume progression analytics engine (`/api/progress/volume`) with configurable 4, 8, and 12-week timeframes
+* 30-day muscle group volume distribution analytics engine (`/api/progress/muscles`) tracking training balance
+* Automated unit test suite (`server/test/progressValidator.test.js`) covering body weight bounds and query parameters
+* Apple-inspired `ProgressModal` UI featuring Body Weight Trajectory, Volume Progression Bars, and Muscular Balance distribution
+
 ## Dashboard & Analytics Module
 
 ### Added

@@ -64,6 +64,24 @@ GET /api/workouts
 
 GET /api/workouts/history
 
+GET /api/workouts/:id
+
+DELETE /api/workouts/:id
+
+---
+
+## Performance & Progress Analytics
+
+POST /api/progress/weight
+
+GET /api/progress/weight
+
+DELETE /api/progress/weight/:id
+
+GET /api/progress/volume
+
+GET /api/progress/muscles
+
 ---
 
 ## Dashboard

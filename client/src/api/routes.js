@@ -38,6 +38,13 @@ export const WORKOUT_ROUTES = {
   DELETE: (id) => `/workouts/${id}`,
 };
 
+export const PROGRESS_ROUTES = {
+  WEIGHT: "/progress/weight",
+  WEIGHT_BY_ID: (id) => `/progress/weight/${id}`,
+  VOLUME: "/progress/volume",
+  MUSCLES: "/progress/muscles",
+};
+
 export const DASHBOARD_ROUTES = {
   GET: "/dashboard",
 };
